@@ -27,9 +27,26 @@ you can use eclipse design view to create xsd file.
 
 Step-2
 -------
-configured maven-plugin to generate jaxb classes using maven.
+create spring boot with dependencies spring-boot-starter-web-services and  wsdl4j and configure maven-plugin to generate jaxb classes using maven.
 
-			<plugin>
+Example:
+--------
+dependency example
+----------------
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>
+
+plugin example
+-------------
+		
+		<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
 				<version>1.6</version>
