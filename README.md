@@ -3,8 +3,8 @@ How to make spring soap web-service(JAX-WS)
 
 step-1: 
 --------
-create xml schema please make sure Request/Response element must be named in following format.
-{operation-name}Request  and {operation-name}Response
+create xml schema please make sure Request/Response element must be named in following format.<br>
+{operation-name}Request  and {operation-name}Response <br>
 Example: getCountryRequest and getCountryResponse  ...findCountryRequest and findCountryResponse.
 
 <element name="findCountryRequest">
@@ -53,9 +53,9 @@ step-3
 ------
 create configuration class in spring boot application and added following 3 beans into this class.
 
-1-ServletRegistrationBean
-2-DefaultWsdl11Definition
-3-XsdSchema
+1-ServletRegistrationBean <br>
+2-DefaultWsdl11Definition <br>
+3-XsdSchema <br>
 
 Example:
 --------
@@ -101,15 +101,32 @@ notes:
 	
 step-4
 ------
-create endpoint class to make responsive service.
+create endpoint class to make responsive service.<br>
 
-class must be annotated with @Endpoint
-and method must be annotated with 
-@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getStudentRequest")
-@ResponsePayload
-and method-argument(request) must be annotated with @RequestPayload
+class must be annotated with @Endpoint and method must be annotated with <br>
+@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getStudentRequest") <br>
+@ResponsePayload <br>
+and method-argument(request) must be annotated with @RequestPayload <br>
 
-NAMESPACE_URI is a target namespace value which is used in xsd file.
-localPart is a request element name of xsd file.
-soapAction=<namespace>/<localpart>
+NAMESPACE_URI is a target namespace value which is used in xsd file.<br>
+localPart is a request element name of xsd file.<br>
+soapAction={namespace}/{localpart}
 
+
+Example:
+------
+
+	@Endpoint
+	public class WebServiceEndpoint {
+		private static final String NAMESPACE_URI = "http://www.example.org/demo/";	
+	//localPart must be xsd request element name.
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getStudentRequest")
+	@ResponsePayload
+	public GetStudentResponse findStudent(@RequestPayload GetStudentRequest request,MessageContext messageContext) {
+		GetStudentResponse ret = new GetStudentResponse();
+		ret.setId(101);
+		ret.setName("Amir");
+		ret.setAge(32);
+		return ret;
+	}
+	}
