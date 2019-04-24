@@ -53,9 +53,9 @@ step-3
 ------
 create configuration class in spring boot application and added following 3 beans into this class.
 
-1-ServletRegistrationBean <br>
-2-DefaultWsdl11Definition <br>
-3-XsdSchema <br>
+1-ServletRegistrationBean -- This is used to provide url mapping for your soap webservice<br>
+2-DefaultWsdl11Definition --This is used to generated runtime WSDL with help of bean called XsdSchema <br>
+3-XsdSchema --This bean is an input for DefaultWsdl11Definition<br>
 
 Example:
 --------
