@@ -4,7 +4,7 @@ How to make spring soap web-service(JAX-WS)
 step-1: 
 --------
 create xml schema please make sure Request/Response element must be named in following format.
-<operation-name>Request  and <operation-name>Response
+{operation-name}Request  and {operation-name}Response
 Example: getCountryRequest and getCountryResponse  ...findCountryRequest and findCountryResponse.
 
 <element name="findCountryRequest">
