@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/demo/"
+	targetNamespace="http://www.example.org/demo/">
+	<element name="getStudentRequest">
+		<complexType>
+			<sequence>
+				<element name="id" type="int" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="getStudentResponse">
+		<complexType>
+			<sequence>
+				<element name="id" type="int" />
+				<element name="name" type="string" />
+				<element name="age" type="int" />
+			</sequence>
+		</complexType>
+	</element>
+ 
+    
+
+    <complexType name="Country">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="code" type="string"></element>
+    		<element name="currency" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="findCountryRequest">
+    <complexType>
+   		 <sequence>
+    		<element name="name" type="string"/>
+    	</sequence>
+    </complexType>
+    </element>
+    
+    <element name="findCountryResponse">
+    <complexType>
+    	<sequence>
+   			 <element name="country" type="tns:Country"/>
+    	</sequence>
+    </complexType>
+    </element>
+    
+</schema>
